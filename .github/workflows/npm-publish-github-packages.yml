@@ -69,15 +69,15 @@ jobs:
           
       # Compress Linux build artifacts
       - name: Compress Linux Build
-        run: zip -r artifacts/linux/electron-linux.zip artifacts/linux/
+        run: zip -r electron-linux.zip artifacts/linux/
 
     # Compress Mac build artifacts
       - name: Compress Mac Build
-        run: zip -r artifacts/macos/electron-macos.zip artifacts/macos/
+        run: zip -r electron-macos.zip artifacts/macos/
 
     # Compress Windows build artifacts
       - name: Compress Windows Build
-        run: zip -r artifacts/windows/electron-windows.zip artifacts/windows/
+        run: zip -r electron-windows.zip artifacts/windows/
 
       - name: Create GitHub Release
         id: create_release
@@ -96,7 +96,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: artifacts/linux/electron-linux.zip
+          asset_path: ./electron-linux.zip
           asset_name: electron-linux.zip
           asset_content_type: application/zip
 
@@ -104,7 +104,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: artifacts/macos/electron-macos.zip
+          asset_path: ./electron-macos.zip
           asset_name: electron-macos.zip
           asset_content_type: application/zip
 
@@ -112,6 +112,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: artifacts/windows/electron-windows.zip
+          asset_path: ./electron-windows.zip
           asset_name: electron-windows.zip
           asset_content_type: application/zip
