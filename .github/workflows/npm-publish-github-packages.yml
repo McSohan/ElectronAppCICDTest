@@ -16,11 +16,12 @@ jobs:
         node-version: [16.x] # Ensure compatibility with your Electron Forge version
     
     runs-on: ${{ matrix.os }}
+
+    defaults:
+      run:
+        working-directory: ./application
     
     steps:
-      - name: Change directory
-        run: cd application
-        
       - name: Checkout Repository
         uses: actions/checkout@v3
 
