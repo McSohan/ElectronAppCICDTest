@@ -66,6 +66,18 @@ jobs:
         with:
           name: electron-build-windows-latest
           path: artifacts/windows
+          
+      # Compress Linux build artifacts
+      - name: Compress Linux Build
+        run: zip -r artifacts/linux/electron-linux.zip artifacts/linux/
+
+    # Compress Mac build artifacts
+      - name: Compress Mac Build
+        run: zip -r artifacts/macos/electron-macos.zip artifacts/macos/
+
+    # Compress Windows build artifacts
+      - name: Compress Windows Build
+        run: zip -r artifacts/windows/electron-windows.zip artifacts/windows/
 
       - name: Create GitHub Release
         id: create_release
