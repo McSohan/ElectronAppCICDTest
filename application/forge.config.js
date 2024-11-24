@@ -9,7 +9,10 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        authors: 'Sohan',
+        description: 'Small application to setup github CICD',
+      },
     },
     {
       name: '@electron-forge/maker-zip',
@@ -17,11 +20,17 @@ module.exports = {
     },
     {
       name: '@electron-forge/maker-deb',
-      config: {},
+      config: {
+        authors: 'Sohan',
+        description: 'Small application to setup github CICD',
+      },
     },
     {
       name: '@electron-forge/maker-rpm',
-      config: {},
+      config: {
+        authors: 'Sohan',
+        description: 'Small application to setup github CICD',
+      },
     },
   ],
   plugins: [
