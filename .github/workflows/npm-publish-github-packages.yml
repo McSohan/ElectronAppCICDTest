@@ -1,0 +1,42 @@
+name: Build Electron App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [16.x] # Ensure compatibility with your Electron Forge version
+    
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+      - name: Change directory
+        run: cd application
+        
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build the Electron App
+        run: npm run make
+
+      - name: Archive Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: electron-build
+          path: out/make/  # Update this to match the output directory of your build process
