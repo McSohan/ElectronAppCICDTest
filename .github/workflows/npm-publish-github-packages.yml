@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: electron-build
-          path: out/make/  # Update this to match the output directory of your build process
+          path: application/out/make  # Update this to match the output directory of your build process
