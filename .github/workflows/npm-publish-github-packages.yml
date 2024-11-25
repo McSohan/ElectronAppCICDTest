@@ -100,7 +100,7 @@ jobs:
           asset_name: electron-macos.zip
           asset_content_type: application/zip
         env:
-          GITHUB_TOKEN: $ {{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Upload Linux Build to Release
         uses: actions/upload-release-asset@v1
@@ -110,7 +110,7 @@ jobs:
           asset_name: electron-linux.zip
           asset_content_type: application/zip
         env:
-          GITHUB_TOKEN: $ {{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
       - name: Upload Windows Build to Release
         uses: actions/upload-release-asset@v1
@@ -120,4 +120,4 @@ jobs:
           asset_name: electron-windows.zip
           asset_content_type: application/zip
         env:
-          GITHUB_TOKEN: $ {{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
